@@ -1085,5 +1085,6 @@ var defaultParams = {
 
 return {
     runif, rnorm, randomVector, generatePoints, centroid, improvePoints, generateGoodPoints, voronoi, makeMesh, generateGoodMesh, isedge, isnearedge, neighbours, distance, quantile, zero, slope, cone, map, normalize, peaky, add, mountains, relax, downhill, findSinks, fillSinks, getFlux, getSlope, erosionRate, erode, doErosion, setSeaLevel, cleanCoast, trislope, cityScore, placeCity, placeCities, contour, getRivers, getTerritories, getBorders, mergeSegments, relaxPath, visualizePoints, makeD3Path, visualizeVoronoi, visualizeDownhill, drawPaths, visualizeSlopes, visualizeContour, visualizeBorders, visualizeCities, dropEdge, generateCoast, terrCenter, drawLabels, drawMap, doMap
+  ,defaultExtent,defaultParams
 }
 });
