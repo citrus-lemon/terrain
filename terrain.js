@@ -1,3 +1,15 @@
+(function (root, factory) {
+  if (typeof define === "function" && define.amd) {
+    // AMD
+    define(["d3", "d3-voronoi"], factory);
+  } else if (typeof exports === "object") {
+    // Node, CommonJS-like
+    module.exports = factory(require("d3"), require("d3-voronoi"));
+  } else {
+    // Browser globals (root is window)
+    root.returnExports = factory(root.d3, root.d3);
+  }
+})(this, function (d3, d3_voronoi) {
 "use strict";
 
 function runif(lo, hi) {
@@ -79,7 +91,7 @@ function voronoi(pts, extent) {
     extent = extent || defaultExtent;
     var w = extent.width/2;
     var h = extent.height/2;
-    return d3.voronoi().extent([[-w, -h], [w, h]])(pts);
+    return d3_voronoi.voronoi().extent([[-w, -h], [w, h]])(pts);
 }
 
 function makeMesh(pts, extent) {
@@ -1071,3 +1083,7 @@ var defaultParams = {
     }
 }
 
+return {
+    runif, rnorm, randomVector, generatePoints, centroid, improvePoints, generateGoodPoints, voronoi, makeMesh, generateGoodMesh, isedge, isnearedge, neighbours, distance, quantile, zero, slope, cone, map, normalize, peaky, add, mountains, relax, downhill, findSinks, fillSinks, getFlux, getSlope, erosionRate, erode, doErosion, setSeaLevel, cleanCoast, trislope, cityScore, placeCity, placeCities, contour, getRivers, getTerritories, getBorders, mergeSegments, relaxPath, visualizePoints, makeD3Path, visualizeVoronoi, visualizeDownhill, drawPaths, visualizeSlopes, visualizeContour, visualizeBorders, visualizeCities, dropEdge, generateCoast, terrCenter, drawLabels, drawMap, doMap
+}
+});
