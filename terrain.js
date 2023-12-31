@@ -1,16 +1,17 @@
 (function (root, factory) {
   if (typeof define === "function" && define.amd) {
     // AMD
-    define(["d3", "d3-voronoi"], factory);
+    define(["d3", "d3-voronoi", "js-priority-queue"], factory);
   } else if (typeof exports === "object") {
     // Node, CommonJS-like
-    module.exports = factory(require("d3"), require("d3-voronoi"));
+    module.exports = factory(require("d3"), require("d3-voronoi"), require("js-priority-queue"));
   } else {
     // Browser globals (root is window)
-    root.returnExports = factory(root.d3, root.d3);
+    root.returnExports = factory(root.d3, root.d3, {PriorityQueue: root.PriorityQueue});
   }
-})(this, function (d3, d3_voronoi) {
+})(this, function (d3, d3_voronoi, priority_queue) {
 "use strict";
+  const PriorityQueue = priority_queue.PriorityQueue;
 
 function runif(lo, hi) {
     return lo + Math.random() * (hi - lo);
