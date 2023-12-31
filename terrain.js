@@ -7,11 +7,10 @@
     module.exports = factory(require("d3"), require("d3-voronoi"), require("js-priority-queue"));
   } else {
     // Browser globals (root is window)
-    root.returnExports = factory(root.d3, root.d3, {PriorityQueue: root.PriorityQueue});
+    root.returnExports = factory(root.d3, root.d3, root.PriorityQueue);
   }
-})(this, function (d3, d3_voronoi, priority_queue) {
+})(this, function (d3, d3_voronoi, PriorityQueue) {
 "use strict";
-  const PriorityQueue = priority_queue.PriorityQueue;
 
 function runif(lo, hi) {
     return lo + Math.random() * (hi - lo);
